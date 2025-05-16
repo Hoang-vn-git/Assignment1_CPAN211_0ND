@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public abstract class Person implements ParticipateHours {
     private String firstName;
     private String lastName;
@@ -45,4 +46,8 @@ public abstract class Person implements ParticipateHours {
 
 
 
+=======
+abstract class Person implements ParticipateHours {
+    
+>>>>>>> 8ac3fde (Haroon's changes)
 }
