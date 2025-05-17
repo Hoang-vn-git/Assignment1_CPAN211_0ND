@@ -1,5 +1,5 @@
-class TA extends Person {
-    public TA(String firstName, String lastName, String title, int totalHours) {
+class TeachingAssistant extends Person {
+    public TeachingAssistant(String firstName, String lastName, String title, int totalHours) {
         super(firstName, lastName, title, totalHours);
     }
 

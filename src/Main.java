@@ -27,11 +27,9 @@ public class Main {
         Person[] professors = new Person[data.length]; // Professor Array
         int countProfessor = 0;
 
+        Person[] teacherAssistants = new Person[data.length];// TA Array
+        int countTA = 0;
 
-        // Haroon
-        Person[] people = new Person[data.length]; // The size of the array doesn't really matter, this array is used to hold all of the different people
-        int[] hours = new int[data.length]; // This array will hold the number of hours for each person
-        int count = 0; // This will be used to keep track of the index of the people array
 
         for (String line : data) {
             boolean isFound = false; // Flag to check is found
@@ -41,20 +39,25 @@ public class Main {
             String title = parts[0];
             String firstName = parts[1];
             String lastName = parts[2];
-            String course = parts[3];
             int courseHours = Integer.parseInt(parts[4]);
 
-            // Initializes the person before assiging its role, first name, last name, and
-            // hours worked
-            Person p;
-            // Condition statement to assigning the role of the person
-//            if (title.equals("Professor")) {
-//                p = new Professor(firstName, lastName);
-//            } else if (title.equals("TA")) {
-//                p = new TA(firstName, lastName);
-//            } else {
-//                p = new Student(firstName, lastName, course, 0);
-//            }
+            
+            if (title.equalsIgnoreCase("TA")) {
+
+                for (int i = 0; i < countTA; i++) {
+                    if(teacherAssistants[i] != null && teacherAssistants[i].getFirstName().equalsIgnoreCase(firstName) && teacherAssistants[i].getLastName().equalsIgnoreCase(lastName)) {
+                        teacherAssistants[i].setTotalHours(teacherAssistants[i].getTotalHours() + teacherAssistants[i].getParticipatingHours(courseHours));
+                        isFound = true;
+                    }
+                }
+                if (!isFound) {
+                    Person ta = new TeachingAssistant(firstName, lastName, title, 0);
+                    teacherAssistants[countTA] = ta;
+                    teacherAssistants[countTA].setTotalHours(teacherAssistants[countTA].getParticipatingHours(courseHours));
+                    countTA++;
+                }
+
+            }
 
 
 
@@ -98,6 +101,11 @@ public class Main {
                 }
             }
         }
+
+        for (int i = 0; i < countTA; i++) {
+            System.out.println(teacherAssistants[i].getTitle() + " " + teacherAssistants[i].getFirstName() + " " + teacherAssistants[i].getLastName() + " " + teacherAssistants[i].getTotalHours());
+        }
+        System.out.println("-----------------------------------------");
 
 
         // Tuan
