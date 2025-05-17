@@ -4,6 +4,7 @@ public abstract class Person implements ParticipateHours {
     private String title;
     private int totalHours;
 
+    // Constructor
     public Person(String firstName, String lastName, String title, int totalHours) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -11,6 +12,7 @@ public abstract class Person implements ParticipateHours {
         this.totalHours = totalHours;
     }
 
+    // Getter & Setter
     public String getFirstName() {
         return firstName;
     }
