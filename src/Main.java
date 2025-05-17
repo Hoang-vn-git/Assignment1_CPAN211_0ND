@@ -24,13 +24,14 @@ public class Main {
         int countStudent = 0;
 
 
-        Person[] professors = new Person[data.length]; // Professor Array
+        Person[] professors = new Professor[data.length]; // Professor Array
         int countProfessor = 0;
 
-        Person[] teacherAssistants = new Person[data.length];// TA Array
+        Person[] teacherAssistants = new TeachingAssistant[data.length];// TA Array
         int countTA = 0;
 
 
+        
         for (String line : data) {
             boolean isFound = false; // Flag to check is found
 
